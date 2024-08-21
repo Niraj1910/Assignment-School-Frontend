@@ -1,0 +1,19 @@
+/* Custom scrollbar styles for Webkit browsers */
+::-webkit-scrollbar {
+    width: 1px; /* Width of the scrollbar */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #0e011b; /* Light grey track */
+    border-radius: 8px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #e9e4e4; /* Darker grey thumb */
+    border-radius: 8px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #f9f3f3; /* Even darker thumb on hover */
+  }
+  
