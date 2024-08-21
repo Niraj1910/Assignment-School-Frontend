@@ -1,8 +1,10 @@
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { isEmailValid } from "../HelperFunctions/helper";
+import { useNavigate } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_API_URL;
+const navigate = useNavigate();
 
 const handleRegisterUser = async (e) => {
   e.preventDefault();
@@ -49,7 +51,7 @@ const handleUserLogin = async (e) => {
 
     const res = await response.json();
     if (response.status === 200) {
-      window.location.href = "/";
+      navigate("/");
     } else {
       toast.error(`${res.message}`);
     }
@@ -81,13 +83,13 @@ const fetchUserData = async (setUserData) => {
       console.error("Failed to decode token:", response.statusText);
       setUserData(null);
 
-      window.location.href = "/sign-in";
+      navigate("/sign-in");
     }
   } catch (error) {
     console.error("Error fetching token payload:", error);
     setUserData(null);
 
-    window.location.href = "/sign-in";
+    navigate("/sign-in");
   }
 };
 

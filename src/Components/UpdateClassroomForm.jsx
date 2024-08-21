@@ -6,9 +6,11 @@ import {
   formatTime,
 } from "../HelperFunctions/helper";
 import { handleUpdateClassroom } from "../APIs/classroomApi";
+import { useNavigate } from "react-router-dom";
 
 const UpdateClassroomForm = ({ classroom, handleFormClose }) => {
   const API_URL = import.meta.env.VITE_API_URL;
+  const navigate = useNavigate();
 
   const [classroomDetails, setClassroomDetails] = useState();
 
@@ -18,7 +20,7 @@ const UpdateClassroomForm = ({ classroom, handleFormClose }) => {
         method: "DELETE",
       });
 
-      if (res.status === 200) window.location.href = "/";
+      if (res.status === 200) navigate("/");
     } catch (error) {
       console.log(error);
     }

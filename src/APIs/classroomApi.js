@@ -1,8 +1,10 @@
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { getClassroomData } from "../HelperFunctions/helper";
+import { useNavigate } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_API_URL;
+const navigate = useNavigate();
 
 const handleUpdateClassroom = async (data, classroom) => {
   try {
@@ -14,7 +16,7 @@ const handleUpdateClassroom = async (data, classroom) => {
       },
     });
 
-    if (res.status === 200) window.location.href = "/";
+    if (res.status === 200) navigate("/");
   } catch (error) {
     console.log(error);
   }
@@ -33,7 +35,7 @@ const handleCreateClassroom = async (formData) => {
     });
     if (response.status === 200) {
       toast.success("New classroom created successfully");
-      window.location.href = "/";
+      navigate("/");
     }
   } catch (error) {
     toast.error("Something went wrong");

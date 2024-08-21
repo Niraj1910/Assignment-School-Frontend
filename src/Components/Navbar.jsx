@@ -1,7 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const API_URL = import.meta.env.VITE_API_URL;
+
+  const navigate = useNavigate();
 
   const handleLogoutBtn = async () => {
     try {
@@ -10,7 +13,7 @@ const Navbar = () => {
         credentials: "include",
       });
 
-      window.location.href = "/";
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
