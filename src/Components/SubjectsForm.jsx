@@ -6,8 +6,11 @@ import {
   handleUpdateSubjectFields,
 } from "../HelperFunctions/helper";
 import { handleUpdateClassroom } from "../APIs/classroomApi";
+import { useNavigate } from "react-router-dom";
 
 const SubjectsForm = ({ classroom, handleFormClose }) => {
+  const navigate = useNavigate();
+
   const [subjectsCount, setSubjectsCount] = useState(1);
   const [subjects, setSubjects] = useState([
     { name: "", start_time: "", end_time: "", error: "" },
@@ -73,7 +76,7 @@ const SubjectsForm = ({ classroom, handleFormClose }) => {
     const allInputs = getUpdatedSubjecsData(formData);
     const updatedData = { ...classroom, subjects_time_table: allInputs };
 
-    handleUpdateClassroom(updatedData, classroom);
+    handleUpdateClassroom(updatedData, classroom, navigate);
   };
 
   return (

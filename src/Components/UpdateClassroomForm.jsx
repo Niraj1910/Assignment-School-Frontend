@@ -45,7 +45,7 @@ const UpdateClassroomForm = ({ classroom, handleFormClose }) => {
       },
     };
 
-    handleUpdateClassroom(data, classroom);
+    handleUpdateClassroom(data, classroom, navigate);
   };
 
   function formatDateInYYYY_MM_DD(inputDate) {

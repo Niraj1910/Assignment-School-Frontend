@@ -9,9 +9,11 @@ import Register from "./Register";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { fetchUserData } from "../APIs/usersApi";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const API_URL = import.meta.env.VITE_API_URL;
+  const navigate = useNavigate();
 
   const { userData, setUserData, allClassRooms, setAllClassRooms } =
     useContext(UserContext);
@@ -32,7 +34,7 @@ const Home = () => {
 
   useEffect(() => {
     if (!fetchUserRef.current) {
-      fetchUserData(setUserData);
+      fetchUserData(setUserData, navigate);
       fetchAllClassRooms();
       fetchUserRef.current = true;
     }

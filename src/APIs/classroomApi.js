@@ -1,12 +1,10 @@
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { getClassroomData } from "../HelperFunctions/helper";
-import { useNavigate } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_API_URL;
-const navigate = useNavigate();
 
-const handleUpdateClassroom = async (data, classroom) => {
+const handleUpdateClassroom = async (data, classroom, navigate) => {
   try {
     const res = await fetch(`${API_URL}/classroom/${classroom._id}`, {
       method: "PUT",
@@ -22,7 +20,7 @@ const handleUpdateClassroom = async (data, classroom) => {
   }
 };
 
-const handleCreateClassroom = async (formData) => {
+const handleCreateClassroom = async (formData, navigate) => {
   const classRoomData = getClassroomData(formData);
 
   try {

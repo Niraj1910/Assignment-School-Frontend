@@ -1,10 +1,8 @@
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { isEmailValid } from "../HelperFunctions/helper";
-import { useNavigate } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_API_URL;
-const navigate = useNavigate();
 
 const handleRegisterUser = async (e) => {
   e.preventDefault();
@@ -32,7 +30,7 @@ const handleRegisterUser = async (e) => {
     toast.error("Registration Failed!");
   }
 };
-const handleUserLogin = async (e) => {
+const handleUserLogin = async (e, navigate) => {
   e.preventDefault();
 
   const formData = new FormData(e.target);
@@ -61,7 +59,7 @@ const handleUserLogin = async (e) => {
   }
 };
 
-const fetchUserData = async (setUserData) => {
+const fetchUserData = async (setUserData, navigate) => {
   try {
     const response = await fetch(`${API_URL}/user/decode-token`, {
       method: "GET",

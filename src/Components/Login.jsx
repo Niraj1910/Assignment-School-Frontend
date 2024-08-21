@@ -4,14 +4,21 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { handleUserLogin } from "../APIs/usersApi";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [passwordVisible, setPasswordVisible] = useState(false);
 
+  const navigate = useNavigate();
+
+  const handleFormSubmit = (e) => {
+    handleUserLogin(e, navigate);
+  };
+
   return (
     <section className="signup-container bg-gradient-to-r from-slate-900 to-purple-900 h-screen flex justify-center items-center text-xl">
       <form
-        onSubmit={handleUserLogin}
+        onSubmit={handleFormSubmit}
         className="w-full max-w-md px-8 py-10 rounded-lg shadow-md bg-white absolute top-[33%]"
       >
         <h2 className="text-3xl font-semibold mb-6 text-center">Sign In</h2>
