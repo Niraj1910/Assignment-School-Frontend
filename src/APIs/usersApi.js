@@ -13,7 +13,7 @@ const handleRegisterUser = async (e) => {
   formData.forEach((value, key) => (signupData[key] = value));
 
   try {
-    const res = await fetch(`${API_URL}/user/register`, {
+    const res = await fetch(`${API_URL}/api/user/register`, {
       method: "POST",
       body: JSON.stringify(signupData),
       headers: {
@@ -38,7 +38,7 @@ const handleUserLogin = async (e, navigate) => {
   formData.forEach((value, key) => (singInData[key] = value));
 
   try {
-    const response = await fetch(`${API_URL}/user/login`, {
+    const response = await fetch(`${API_URL}/api/user/login`, {
       method: "POST",
       body: JSON.stringify(singInData),
       headers: {
@@ -61,7 +61,7 @@ const handleUserLogin = async (e, navigate) => {
 
 const fetchUserData = async (setUserData, navigate) => {
   try {
-    const response = await fetch(`${API_URL}/user/decode-token`, {
+    const response = await fetch(`${API_URL}/api/user/decode-token`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -93,7 +93,7 @@ const fetchUserData = async (setUserData, navigate) => {
 
 const getAllUsers = async (setAllTeachers, setAllStudents) => {
   try {
-    const response = await fetch(`${API_URL}/user/all`, {
+    const response = await fetch(`${API_URL}/api/user/all`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -132,7 +132,7 @@ const handleDelete = async (
     return toast.error("Please enter a valid email address.");
 
   try {
-    const res = await fetch(`${API_URL}/user/update/${selectedUser._id}`, {
+    const res = await fetch(`${API_URL}/api/user/update/${selectedUser._id}`, {
       method: "DELETE",
     });
 
@@ -160,7 +160,7 @@ const handleUpdate = async (
     return toast.error("Please enter a valid email address.");
 
   try {
-    const res = await fetch(`${API_URL}/user/update/${selectedUser._id}`, {
+    const res = await fetch(`${API_URL}/api/user/update/${selectedUser._id}`, {
       method: "PUT",
       body: JSON.stringify({
         name: selectedUser.name,

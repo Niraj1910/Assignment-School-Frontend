@@ -6,7 +6,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 const handleUpdateClassroom = async (data, classroom, navigate) => {
   try {
-    const res = await fetch(`${API_URL}/classroom/${classroom._id}`, {
+    const res = await fetch(`${API_URL}/api/classroom/${classroom._id}`, {
       method: "PUT",
       body: JSON.stringify(data),
       headers: {
@@ -24,7 +24,7 @@ const handleCreateClassroom = async (formData, navigate) => {
   const classRoomData = getClassroomData(formData);
 
   try {
-    const response = await fetch(`${API_URL}/classroom/new`, {
+    const response = await fetch(`${API_URL}/api/classroom/new`, {
       method: "POST",
       body: JSON.stringify(classRoomData),
       headers: {

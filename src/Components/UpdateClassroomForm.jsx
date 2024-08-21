@@ -16,7 +16,7 @@ const UpdateClassroomForm = ({ classroom, handleFormClose }) => {
 
   const handleDeleteBtn = async () => {
     try {
-      const res = await fetch(`${API_URL}/classroom/${classroom._id}`, {
+      const res = await fetch(`${API_URL}/api/classroom/${classroom._id}`, {
         method: "DELETE",
       });
 

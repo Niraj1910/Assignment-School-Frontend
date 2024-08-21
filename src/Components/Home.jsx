@@ -20,7 +20,7 @@ const Home = () => {
 
   const fetchAllClassRooms = async () => {
     try {
-      const response = await fetch(`${API_URL}/classroom/all`);
+      const response = await fetch(`${API_URL}/api/classroom/all`);
 
       const data = await response.json();
 

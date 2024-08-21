@@ -8,7 +8,7 @@ const Navbar = () => {
 
   const handleLogoutBtn = async () => {
     try {
-      await fetch(`${API_URL}/user/logout`, {
+      await fetch(`${API_URL}/api/user/logout`, {
         method: "GET",
         credentials: "include",
       });
