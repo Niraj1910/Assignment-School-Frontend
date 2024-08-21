@@ -49,7 +49,7 @@ const handleUserLogin = async (e) => {
 
     const res = await response.json();
     if (response.status === 200) {
-      // window.location.href = "/";
+      window.location.href = "/";
     } else {
       toast.error(`${res.message}`);
     }
@@ -81,13 +81,13 @@ const fetchUserData = async (setUserData) => {
       console.error("Failed to decode token:", response.statusText);
       setUserData(null);
 
-      // window.location.href = "/sign-in";
+      window.location.href = "/sign-in";
     }
   } catch (error) {
     console.error("Error fetching token payload:", error);
     setUserData(null);
 
-    // window.location.href = "/sign-in";
+    window.location.href = "/sign-in";
   }
 };
 
